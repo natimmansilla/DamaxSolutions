@@ -1,57 +1,72 @@
 /* General Styles */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #FFFFFF; /* Fondo principal */
-    color: #1C1C1C; /* Texto principal */
+    padding: 0;
+    overflow-x: hidden; /* Evita el scroll horizontal */
+    box-sizing: border-box; /* Uniforma el modelo de caja */
+    font-family: 'Lato', sans-serif;
+    background-color: whitesmoke;
+    color: #1C1C1C;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit; /* Consistencia en el modelo de caja */
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
 }
 
 /* Navbar Styles */
 nav {
-    background-color: #0056B3; /* Azul principal */
+    background-color: #0056B3;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
 }
-nav .logo a {
-    color: #FFFFFF; /* Texto blanco */
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: bold;
+nav .footer-logo img {
+    /*max-width: 100px;
+    height: auto;*/
+    height: 50px;
+    width: auto;
 }
+
+
 nav .menu {
     display: flex;
     gap: 15px;
 }
 nav .menu a {
-    color: #FFFFFF; /* Texto blanco */
+    font-size: 20px;
+    color: #FFFFFF;
     text-decoration: none;
     padding: 10px 15px;
     transition: background-color 0.3s;
 }
 nav .menu a:hover {
-    background-color: #FFD700; /* Amarillo dorado */
-    color: #1C1C1C; /* Texto negro */
+    background-color: #FFD700;
+    color: #1C1C1C;
     border-radius: 5px;
 }
 nav .hamburger {
     display: none;
     font-size: 24px;
-    color: #FFFFFF; /* Texto blanco */
+    color: #FFFFFF;
     cursor: pointer;
 }
 
-/* Menu Responsive */
-nav .menu {
-    display: flex;
-    gap: 15px;
-}
+/* Responsive Menu */
 nav .menu.active {
     display: flex;
     flex-direction: column;
-    background-color: #0056B3; /* Azul principal */
+    background-color: #0056B3;
     position: absolute;
     top: 60px;
     right: 20px;
@@ -59,46 +74,41 @@ nav .menu.active {
     border-radius: 5px;
     padding: 10px 15px;
 }
-nav .menu a {
-    margin: 0;
-    padding: 10px 15px;
-    border-bottom: 1px solid #FFFFFF; /* Separador */
-}
-nav .menu a:last-child {
-    border-bottom: none;
-}
 
 /* Hero Section */
 .hero {
     text-align: center;
     padding: 50px 20px;
-    background-color: #F4F4F4; /* Gris claro */
-}
-.hero h1 {
-    color: #0056B3; /* Azul principal */
-    font-size: 36px;
+    background-color: #F4F4F4;
+    background: url('img/0.1_ImgHero.webp') no-repeat center center/cover;
 }
 
-/* Botones Generales */
+.hero h1 {
+    color: #0056B3;
+    font-size: 2.5em;
+}
+.hero p {
+    font-size: 1.1em;
+}
+
+/* Buttons */
 .button {
-    background-color: #FFD700; /* Amarillo dorado */
-    color: #1C1C1C; /* Texto negro */
+    background-color: #FFD700;
+    color: #1C1C1C;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    text-align: center;
 }
 .button:hover {
-    background-color: #0056B3; /* Azul principal */
-    color: #FFFFFF; /* Texto blanco */
+    background-color: #0056B3;
+    color: #FFFFFF;
 }
-
 .whatsapp-btn {
     position: fixed;
-    bottom: 20px;
+    bottom: 100px;
     right: 20px;
     background-color: #25D366;
     color: white;
@@ -109,20 +119,40 @@ nav .menu a:last-child {
     font-size: 24px;
     cursor: pointer;
     z-index: 1000;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
-
 .whatsapp-btn:hover {
     background-color: #128C7E;
+    transform: scale(1.1);
 }
 
+/* Botón flotante de Instagram */
+.instagram-btn {
+    position: fixed;
+    bottom: 210px; /* Posición encima del segundo botón */
+    right: 20px;
+    background-color: #C13584; /* Color oficial de Instagram */
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
 
+.instagram-btn:hover {
+    background-color: #E1306C; /* Color más oscuro para hover */
+    transform: scale(1.1);
+}
 
 /* Secciones */
-section {
-    padding: 40px 20px;
-}
+
 section:nth-child(even) {
     background-color: #F4F4F4; /* Alterna gris claro */
+
 }
 h2 {
     color: #0056B3; /* Azul principal */
@@ -140,12 +170,10 @@ p {
 }
 
 /* Footer Styles */
-/* Footer styles */
 footer {
     background-color: #0D47A1; /* Azul principal de la empresa */
     color: #ffffff;
     text-align: center;
-    padding: 20px 10px;
     position: relative;
     bottom: 0;
     width: 100%;
@@ -158,8 +186,9 @@ footer {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px 10px;
     gap: 20px;
+    flex-wrap: wrap; /* Permitir que los elementos salten de línea en pantallas pequeñas */
 }
 
 .footer-logo img {
@@ -167,41 +196,23 @@ footer {
     width: auto;
 }
 
-.social-icons {
-    display: flex;
-    gap: 15px;
-}
-
-.social-icons a {
-    color: #ffffff;
-    font-size: 24px;
+.footer-icon {
+    color: white;
     text-decoration: none;
-    transition: transform 0.3s, color 0.3s;
-    background-color: #1565C0; /* Azul complementario para botones */
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    font-size: 1.2rem;
     display: flex;
-    justify-content: center;
     align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
 }
 
-.social-icons a:hover {
-    transform: scale(1.1);
-    color: #FFC107; /* Amarillo dorado como color de acento */
-    background-color: #0B3954; /* Azul más oscuro para hover */
+.footer-icon:hover {
+    color: #ff4500;
 }
 
-.social-icons a[aria-label="Gmail"]:hover {
-    color: #FFC107; /* Rojo para Gmail */
+.footer-icon i {
+    font-size: 1.5rem;
 }
-
-footer p {
-    margin-top: 15px;
-    font-size: 14px;
-    color: #ffffff;
-}
-
 
 /* Responsive Styles */
 @media (max-width: 768px) {
@@ -210,25 +221,15 @@ footer p {
     }
     nav .menu {
         display: none;
-        flex-direction: column;
-        gap: 0;
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        background-color: #0056B3; /* Azul principal */
-        border-radius: 5px;
-        padding: 10px;
-        width: 200px;
     }
     nav .menu.active {
         display: flex;
     }
-    nav .menu a {
-        margin: 0;
-        padding: 10px 15px;
-        border-bottom: 1px solid #F4F4F4; /* Separador */
+    
+    .hero h1 {
+        font-size: 2em;
     }
-    nav .menu a:last-child {
-        border-bottom: none;
+    .hero p {
+        font-size: 1em;
     }
 }
