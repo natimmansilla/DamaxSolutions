@@ -171,6 +171,7 @@ nav .nav__logo {
 }
 
 
+
 @media screen and (max-width: 768px){
   .nav__menu{
     position: fixed;
@@ -285,7 +286,21 @@ nav .nav__logo {
 .home__img{
   width: 300px;
   justify-self: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra suave */
 }
+
+#fondo-curvo {
+  background-color: #E5E5E5; /* Color del fondo */
+  width: 100vw; /* Ocupar todo el ancho de la pantalla */
+  height: 110vh; /* Ajustar la altura según necesidad */
+  border-radius: 0 0 20% 20%; /* Menos redondeado */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Para que quede detrás del contenido */
+}
+
 
 /*========== BUTTONS ==========*/
 .button{
@@ -412,6 +427,8 @@ nav .nav__logo {
 .app__img{
   width: 230px;
   justify-self: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra suave */
 }
 
 /*========== CONTACT ==========*/
